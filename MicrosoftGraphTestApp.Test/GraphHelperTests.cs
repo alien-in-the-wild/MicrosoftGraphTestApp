@@ -45,7 +45,7 @@ namespace MicrosoftGraphTestApp.Test
         [Fact]
         public async void GetGroups_InvalidClientSecret()
         {
-            GraphHelper graphHelper = GetGraphHelper(out string jsonResponse, true);
+            GraphHelper graphHelper = GetGraphHelper(out string _, true);
             
             Assert.NotNull(graphHelper);
             await Assert.ThrowsAsync<ArgumentException>(() => graphHelper.GetGroupsAsync());

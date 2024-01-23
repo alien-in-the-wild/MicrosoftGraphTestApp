@@ -62,7 +62,7 @@ namespace MicrosoftGraphTestApp
             try
             {
                 var groupsResponse = await graphHelper.GetGroupsAsync();
-                if (groupsResponse == null || groupsResponse.Value == null)
+                if (groupsResponse == null || groupsResponse.Value == null || groupsResponse.Response == null)
                     throw new NullReferenceException("Error getting groups response.");
             
                 string path = Path.Combine(settings.SaveGroupsPath, "/MSGraph/Groups");

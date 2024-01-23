@@ -7,7 +7,7 @@ Simple .Net Core application to test Microsoft Graph API
 Clone the project
 
 ```console
-  git clone https://github.com/
+  git clone https://github.com/alien-in-the-wild/MicrosoftGraphTestApp
 ```
 
 Go to the project directory
@@ -19,6 +19,21 @@ Go to the project directory
 Update the application settings file: **appsettings.json**.
 1. Set credentials: {**ClientId**}, {**ClientSecret**}, {**TenantId**}
 2. Set local path to save group files: {**SaveGroupsPath**}
+
+```json
+{
+  "settings": {
+    "clientId": "{ClientId}",
+    "clientSecret": "{ClientSecret}",
+    "scope": "https://graph.microsoft.com/.default",
+    "grantType": "client_credentials",
+    "identityApiUrl": "https://login.microsoftonline.com/{TenantId}/oauth2/v2.0",
+    "graphApiUrl": "https://graph.microsoft.com/v1.0",
+    "saveGroupsPath": "{SaveGroupsPath}"
+  }
+}
+
+```
 
 Run the project
 
