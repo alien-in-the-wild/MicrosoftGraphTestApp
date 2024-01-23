@@ -35,8 +35,12 @@ Update the application settings file: **appsettings.json**.
 
 ```
 
-Run the project
+Run the project and follow the application instructions.
 
 ```console
   dotnet run
 ```
+
+## Limitations and known issues
+
+The pagination logic to handle large numbers of groups is not implemented.
