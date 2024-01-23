@@ -5,6 +5,10 @@ namespace MicrosoftGraphTestApp
 {
     class Program
     {
+        /// <summary>
+        /// Entry method
+        /// </summary>
+        /// <param name="_"></param>
         static async Task Main(string[] _)
         {
             GraphHelper graphHelper;
@@ -12,8 +16,10 @@ namespace MicrosoftGraphTestApp
             
             try
             {
-                // Initialize Graph
+                // Load settings
                 settings = Settings.LoadSettings();
+                
+                // Initialize Graph
                 graphHelper = new GraphHelper(settings);
             }
             catch (Exception e)
@@ -57,17 +63,25 @@ namespace MicrosoftGraphTestApp
             }
         }
 
+        /// <summary>
+        /// Fetches Groups from MS Graph API and save JSON to files
+        /// </summary>
+        /// <param name="settings">Settings instance</param>
+        /// <param name="graphHelper">GraphHelper instance</param>
         private static async Task DownloadGroupsAsync(Settings settings, GraphHelper graphHelper)
         {
             try
             {
+                // Fetching Groups from MS Graph API
                 var groupsResponse = await graphHelper.GetGroupsAsync();
                 if (groupsResponse == null || groupsResponse.Value == null || groupsResponse.Response == null)
                     throw new NullReferenceException("Error getting groups response.");
             
-                string path = Path.Combine(settings.SaveGroupsPath, "/MSGraph/Groups");
+                // Path to save files
+                string path = Path.Combine(settings.SaveGroupsPath, "MSGraph/Groups");
                 Directory.CreateDirectory(path);
             
+                // Parsing JSON to extract group objects
                 JsonNode? jsonNode = JsonNode.Parse(groupsResponse.Response);
                 if (jsonNode != null)
                 {
@@ -80,6 +94,7 @@ namespace MicrosoftGraphTestApp
                         string filePath = Path.Combine(path, $"{group.DisplayName}.json");
                         string groupJsonText = jsonGroups[nGroup]!.ToJsonString();
                     
+                        // Saving group to the file
                         await File.WriteAllTextAsync(filePath, groupJsonText);
                         Console.WriteLine($"Group {nGroup+1}: {filePath}");
                     }

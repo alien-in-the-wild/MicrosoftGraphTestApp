@@ -1,9 +1,16 @@
 using System.Text.Json.Serialization;
 
-namespace MicrosoftGraphTestApp.Data;
-
-public class TokenResponse
+namespace MicrosoftGraphTestApp.Data
 {
-    [JsonPropertyName("access_token")]
-    public string? AccessToken { get; set; }
+    /// <summary>
+    /// Response from Identity API token request
+    /// </summary>
+    public class TokenResponse
+    {
+        /// <summary>
+        /// Token string
+        /// </summary>
+        [JsonPropertyName("access_token")]
+        public string? AccessToken { get; set; }
+    }
 }
