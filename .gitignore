@@ -1,0 +1,8 @@
+/.idea/.idea.MicrosoftGraphTestApp/.idea/.gitignore
+/.idea/.idea.MicrosoftGraphTestApp/.idea/encodings.xml
+/.idea/.idea.MicrosoftGraphTestApp/.idea/indexLayout.xml
+/.idea/.idea.MicrosoftGraphTestApp/.idea/vcs.xml
+/MicrosoftGraphTestApp/obj
+/MicrosoftGraphTestApp/bin
+/MicrosoftGraphTestApp.Test/obj
+/MicrosoftGraphTestApp.Test/bin
